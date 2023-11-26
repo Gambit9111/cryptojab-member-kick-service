@@ -4,7 +4,7 @@ from datetime import datetime
 import stripe
 from telebot import TeleBot
 
-from config import DB_URL, STRIPE_API_KEY, TELEGRAM_ADMIN_ID, TELEGRAM_BOT_TOKEN, TELEGRAM_PREMIUM_CHANNEL_ID
+from config import DB_URL, STRIPE_API_KEY, TELEGRAM_ADMIN_ID, TELEGRAM_BOT_TOKEN, TELEGRAM_PREMIUM_CHANNEL_ID, KICK_PERIOD
 
 from db.base import Base
 from db.models import Users
@@ -58,5 +58,5 @@ def main_job():
 
 if __name__ == '__main__':
     scheduler = BlockingScheduler()
-    scheduler.add_job(main_job, 'interval', hours=1)
+    scheduler.add_job(main_job, 'interval', minutes=int(KICK_PERIOD))
     scheduler.start()

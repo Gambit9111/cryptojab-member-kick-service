@@ -7,6 +7,7 @@ TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
 TELEGRAM_ADMIN_ID = os.getenv("TELEGRAM_ADMIN_ID")
 TELEGRAM_PREMIUM_CHANNEL_ID = os.getenv("TELEGRAM_PREMIUM_CHANNEL_ID")
 STRIPE_API_KEY = os.getenv("STRIPE_API_KEY")
+KICK_PERIOD = os.getenv("KICK_PERIOD")
 
 if DB_URL is None:
     raise Exception("DB_URL not set in .env file")
@@ -18,5 +19,7 @@ elif TELEGRAM_PREMIUM_CHANNEL_ID is None:
     raise Exception("TELEGRAM_PREMIUM_CHANNEL_ID not set in .env file")
 elif STRIPE_API_KEY is None:
     raise Exception("STRIPE_API_KEY not set in .env file")
+elif KICK_PERIOD is None:
+    raise Exception("KICK_PERIOD not set in .env file")
 else :
     print("All environment variables set")
